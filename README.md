@@ -38,7 +38,7 @@ The project uses Ruby and RSpec. To use the software:
 
 ### Development approach
 
-The code was written using a TDD approach via RSpec. On a conceptual level, the objects and actions should eventually consist of something along the lines of:
+The code was written using a TDD approach via RSpec and Capybara. On a conceptual level, the objects and actions should eventually consist of something along the lines of:
 
 ```
 Account - the bank account, contains an Account_transactions object
@@ -63,4 +63,4 @@ Transaction - a single transaction, stored in an Account_transactions object
 * transaction_time - read-only
 ```
 
-Printing a statement is a method on Account. Testing its ability to format and return information appropriate to the request _where the calls to get the information have been mocked out_ is a unit test, but testing the full operation of the statement method is a feature test, as it draws on multiple methods and the full transaction history of the account.
+Printing a statement is a method on Account. Testing its ability to format and return information appropriate to the request _where the calls to get the information have been mocked out_ is a unit test, but testing the full operation of the statement method is a feature test, as it draws on multiple methods and the full transaction history of the account. Accordingly, this is created as a feature test in RSpec/Capybara to drive further development. Capybara's web features are not used as the target interface is a REPL.
