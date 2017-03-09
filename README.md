@@ -59,6 +59,8 @@ Account_transactions - collection of transactions for a single account
 Transaction - a single transaction, stored in an Account_transactions object
 * new (transaction_type, value, Time.new)
 * transaction_type - read-only
-* transaction_value - read-only
+* transaction_amount - read-only
 * transaction_time - read-only
 ```
+
+Printing a statement is a method on Account. Testing its ability to format and return information appropriate to the request _where the calls to get the information have been mocked out_ is a unit test, but testing the full operation of the statement method is a feature test, as it draws on multiple methods and the full transaction history of the account.
