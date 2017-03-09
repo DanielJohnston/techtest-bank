@@ -14,6 +14,7 @@ class Account
 
   def withdraw amount, time=Time.new
     @balance -= amount
+    @transactions << {type: :debit, amount: amount, time: time}
   end
 
   def statement

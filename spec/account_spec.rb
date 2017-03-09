@@ -30,7 +30,14 @@ describe Account do
     it 'retrieves a single deposit made at a set time' do
       time = Time.new
       subject.deposit(amount = 10, time = time)
-      expect(subject.transactions).to eq [{ type: :credit, amount: 10, time: time }]
+      expect(subject.transactions.last).to include({ type: :credit, amount: 10, time: time })
+    end
+
+    it 'retrieves a single withdrawal made at a set time' do
+      subject.deposit(amount = 10, time = Time.new)
+      time = Time.new
+      subject.withdraw(amount = 10, time = time)
+      expect(subject.transactions.last).to include({ type: :debit, amount: 10, time: time })
     end
   end
 

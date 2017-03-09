@@ -1,5 +1,3 @@
-require 'account'
-
 feature 'account statement' do
   scenario 'shows a statement for multiple deposits and withdrawals' do
     desired_response =  "date       || credit || debit   || balance"
