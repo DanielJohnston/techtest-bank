@@ -46,6 +46,13 @@ describe Account do
     it 'prints a title row' do
       expect(subject.statement).to eq title_row
     end
+
+    it 'prints a single deposit transaction' do
+      time = Time.new(2012,1,10)
+      desired_response = "\n10/01/2012 || 1000.00||         || 1000.00"
+      subject.deposit(amount = 1000, time = time)
+      expect(subject.statement).to eq title_row + desired_response
+    end
     # Blocked out, pending creation of prior code
     # it 'shows a single deposit with set date and balance' do
     #   desired_response = "date       || credit || debit   || balance"
