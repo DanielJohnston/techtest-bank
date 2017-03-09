@@ -16,6 +16,11 @@ describe Account do
       subject.deposit(10)
       expect(subject.balance).to eq 10
     end
+
+    it "shows a balance of 10.5 after depositing 10.5" do
+      subject.deposit(10.5)
+      expect(subject.balance).to eq 10.5
+    end
   end
 
   describe '#withdraw' do
@@ -25,7 +30,6 @@ describe Account do
     end
   end
 
-  # This is prior code for the #statement method
   describe '#transactions' do
     it 'retrieves a deposit amount, time and type' do
       time = Time.new
@@ -41,34 +45,8 @@ describe Account do
     end
   end
 
-  # Extracting across to Statement
-  # describe '#statement' do
-  #   title_row = "date       || credit || debit   || balance"
-  #   it 'prints a title row' do
-  #     expect(subject.statement).to eq title_row
-  #   end
-  #
-  #   it 'prints a single deposit transaction' do
-  #     time = Time.new(2012,1,10)
-  #     desired_response = "\n10/01/2012 || 1000.00||         || 1000.00"
-  #     subject.deposit(amount = 1000, time = time)
-  #     expect(subject.statement).to eq title_row + desired_response
-  #   end
-  #
-  #   it 'prints two deposit transactions' do
-  #     desired_response = "\n13/01/2012 || 2000.00||         || 3000.00"
-  #     desired_response << "\n10/01/2012 || 1000.00||         || 1000.00"
-  #     subject.deposit(amount = 1000, time = Time.new(2012, 1, 10))
-  #     subject.deposit(amount = 2000, time = Time.new(2012, 1, 13))
-  #     expect(subject.statement).to eq title_row + desired_response
-  #   end
-  #
-  #   it 'prints a deposit and a withdrawal' do
-  #     desired_response = "\n14/01/2012 ||        || 500.00  ||  500.00"
-  #     desired_response << "\n10/01/2012 || 1000.00||         || 1000.00"
-  #     subject.deposit(amount = 1000, time = Time.new(2012, 1, 10))
-  #     subject.withdraw(amount = 500, time = Time.new(2012,1,14))
-  #     expect(subject.statement).to eq title_row + desired_response
-  #   end
-  # end
+  describe '#print_statement' do
+    xit 'passes the transaction history and balance to Statement.print' do
+    end
+  end
 end

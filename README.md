@@ -67,7 +67,7 @@ Printing a statement is a method on Account. Testing its ability to format and r
 
 In addition to the core specs, I've put together a number of tasks to clean up the code and make it more usable in a wider context:
 
-- [ ] Refactor statement printing into its own class
+- [x] Refactor statement printing into its own class
 - [ ] Create an app.rb file that launches a REPL to act as the user interface
 - [ ] Add ability to handle pennies as well as pounds, ideally using the Money gem
 - [ ] Refactor transactions into their own class
