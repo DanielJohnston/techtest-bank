@@ -18,8 +18,8 @@ class Account
   end
 
   def statement
-    # printout = "date       || credit || debit   || balance"
+    printout = "date       || credit || debit   || balance"
     # printout << "\n13/01/2012 || 2000.00||         || 3000.00"
-    # printout
+    printout
   end
 end

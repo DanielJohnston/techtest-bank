@@ -27,13 +27,13 @@ describe Account do
 
   # This is prior code for the #statement method
   describe '#transactions' do
-    it 'retrieves a single deposit made at a set time' do
+    it 'retrieves a deposit amount, time and type' do
       time = Time.new
       subject.deposit(amount = 10, time = time)
       expect(subject.transactions.last).to include({ type: :credit, amount: 10, time: time })
     end
 
-    it 'retrieves a single withdrawal made at a set time' do
+    it 'retrieves a withdrawal amount, time and type' do
       subject.deposit(amount = 10, time = Time.new)
       time = Time.new
       subject.withdraw(amount = 10, time = time)
@@ -42,6 +42,10 @@ describe Account do
   end
 
   describe '#statement' do
+    title_row = "date       || credit || debit   || balance"
+    it 'prints a title row' do
+      expect(subject.statement).to eq title_row
+    end
     # Blocked out, pending creation of prior code
     # it 'shows a single deposit with set date and balance' do
     #   desired_response = "date       || credit || debit   || balance"
