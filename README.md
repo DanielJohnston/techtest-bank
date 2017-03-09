@@ -64,3 +64,13 @@ Transaction - a single transaction, stored in an Account_transactions object
 ```
 
 Printing a statement is a method on Account. Testing its ability to format and return information appropriate to the request _where the calls to get the information have been mocked out_ is a unit test. However, I've created a feature test for the full operation of the statement method in RSpec/Capybara, as this is the primary acceptance / feature test across any classes that are implemented. Capybara's web features are not used as the target interface is a REPL.
+
+In addition to the core specs, I've put together a number of tasks to clean up the code and make it more usable in a wider context:
+
+- [ ] Refactor statement printing into its own class
+- [ ] Create an app.rb file that launches a REPL to act as the user interface
+- [ ] Add ability to handle pennies as well as pounds, ideally using the Money gem
+- [ ] Refactor transactions into their own class
+- [ ] Refactor the list of transactions for an account into its own class
+- [ ] Add statement formatting to handle £10,000 or greater
+- [ ] Log the date a transaction is entered into the system, as a security measure
