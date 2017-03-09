@@ -70,7 +70,7 @@ In addition to the core specs, I've put together a number of tasks to clean up t
 - [x] Refactor statement printing into its own class
 - [ ] Create an app.rb file that launches a REPL to act as the user interface
 - [ ] Add ability to handle pennies as well as pounds, ideally using the Money gem
-- [ ] Refactor transactions into their own class
+- [x] Refactor transactions into their own class
 - [ ] Refactor the list of transactions for an account into its own class
 - [ ] Add statement formatting to handle £10,000 or greater
 - [ ] Log the date a transaction is entered into the system, as a security measure

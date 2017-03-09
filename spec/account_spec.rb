@@ -31,17 +31,8 @@ describe Account do
   end
 
   describe '#transactions' do
-    it 'retrieves a deposit amount, time and type' do
-      time = Time.new
-      subject.deposit(amount = 10, time = time)
-      expect(subject.transactions.last).to include({ type: :credit, amount: 10, time: time })
-    end
+    xit 'retrieves the latest transaction' do
 
-    it 'retrieves a withdrawal amount, time and type' do
-      subject.deposit(amount = 10, time = Time.new)
-      time = Time.new
-      subject.withdraw(amount = 10, time = time)
-      expect(subject.transactions.last).to include({ type: :debit, amount: 10, time: time })
     end
   end
 

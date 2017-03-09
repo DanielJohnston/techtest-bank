@@ -9,12 +9,12 @@ class Account
 
   def deposit amount, time=Time.new
     @balance += amount
-    @transactions << {type: :credit, amount: amount, time: time}
+    @transactions << Transaction.new(type = :credit, amount = amount, time = time)
   end
 
   def withdraw amount, time=Time.new
     @balance -= amount
-    @transactions << {type: :debit, amount: amount, time: time}
+    @transactions << Transaction.new(type = :debit, amount = amount, time = time)
   end
 
   def print_statement
