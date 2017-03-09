@@ -21,6 +21,10 @@ describe Transaction do
     it 'returns the amount passed in' do
       expect(Transaction.new(type = :some_type, amount = :some_amount).amount).to eq :some_amount
     end
+
+    it 'stores pennies' do
+      expect(Transaction.new(type = :some_type, amount = 10.5).amount).to eq 10.5
+    end
   end
 
   describe '#time' do

@@ -13,7 +13,7 @@ describe Statement do
 
     it 'prints a single deposit transaction' do
       deposit_1000 = double(type: :credit, amount: 1000, time: Time.new(2012, 1, 10))
-      transactions = double(:reverse => [deposit_1000])
+      transactions = [deposit_1000]
       balance = 1000
       desired_response = "\n10/01/2012 || 1000.00||         || 1000.00"
       expect(subject.print(transactions, balance)).to eq title_row + desired_response
@@ -36,6 +36,14 @@ describe Statement do
       balance = 500
       desired_response = "\n14/01/2012 ||        || 500.00  ||  500.00"
       desired_response << "\n10/01/2012 || 1000.00||         || 1000.00"
+      expect(subject.print(transactions, balance)).to eq title_row + desired_response
+    end
+
+    it 'prints a deposit and balance involving pennies' do
+      deposit_1000_and_fifty = double(type: :credit, amount: 1000.5, time: Time.new(2012, 1, 10))
+      transactions = [deposit_1000_and_fifty]
+      balance = 1000.5
+      desired_response = "\n10/01/2012 || 1000.50||         || 1000.50"
       expect(subject.print(transactions, balance)).to eq title_row + desired_response
     end
   end
