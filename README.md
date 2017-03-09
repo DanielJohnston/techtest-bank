@@ -63,4 +63,4 @@ Transaction - a single transaction, stored in an Account_transactions object
 * transaction_time - read-only
 ```
 
-Printing a statement is a method on Account. Testing its ability to format and return information appropriate to the request _where the calls to get the information have been mocked out_ is a unit test, but testing the full operation of the statement method is a feature test, as it draws on multiple methods and the full transaction history of the account. Accordingly, this is created as a feature test in RSpec/Capybara to drive further development. Capybara's web features are not used as the target interface is a REPL.
+Printing a statement is a method on Account. Testing its ability to format and return information appropriate to the request _where the calls to get the information have been mocked out_ is a unit test. However, I've created a feature test for the full operation of the statement method in RSpec/Capybara, as this is the primary acceptance / feature test across any classes that are implemented. Capybara's web features are not used as the target interface is a REPL.

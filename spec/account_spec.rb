@@ -53,18 +53,21 @@ describe Account do
       subject.deposit(amount = 1000, time = time)
       expect(subject.statement).to eq title_row + desired_response
     end
-    # Blocked out, pending creation of prior code
-    # it 'shows a single deposit with set date and balance' do
-    #   desired_response = "date       || credit || debit   || balance"
-    #   desired_response << "\n13/01/2012 || 2000.00||         || 3000.00"
-    #   subject.deposit(2000)
-    #   expect(subject.statement). to eq desired_response
-    # end
-    #
-    # it 'shows a different deposit, date and balance' do
-    #   desired_response = "date       || credit || debit   || balance"
-    #   desired_response << "\n10/01/2012 || 1000.00||         || 1000.00"
-    #   subject.deposit(1000)
-    # end
+
+    it 'prints two deposit transactions' do
+      desired_response = "\n13/01/2012 || 2000.00||         || 3000.00"
+      desired_response << "\n10/01/2012 || 1000.00||         || 1000.00"
+      subject.deposit(amount = 1000, time = Time.new(2012, 1, 10))
+      subject.deposit(amount = 2000, time = Time.new(2012, 1, 13))
+      expect(subject.statement).to eq title_row + desired_response
+    end
+
+    it 'prints a deposit and a withdrawal' do
+      desired_response = "\n14/01/2012 ||        || 500.00  ||  500.00"
+      desired_response << "\n10/01/2012 || 1000.00||         || 1000.00"
+      subject.deposit(amount = 1000, time = Time.new(2012, 1, 10))
+      subject.withdraw(amount = 500, time = Time.new(2012,1,14))
+      expect(subject.statement).to eq title_row + desired_response
+    end
   end
 end
