@@ -17,4 +17,11 @@ describe Account do
       expect(subject.balance).to eq 10
     end
   end
+
+  describe '#withdraw' do
+    it 'responds to withdraw' do
+      subject.deposit(10)
+      expect{ subject.withdraw(10) }.not_to raise_error
+    end
+  end
 end
